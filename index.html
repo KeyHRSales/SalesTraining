@@ -102,7 +102,7 @@ body{
 }
 
 /* ---------------- Top navigation ---------------------------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:22px;}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
 .brand-logo{height:34px;width:auto;display:block;}
@@ -1033,6 +1033,27 @@ try{
   render(TABS[0].id);
 }
 ␄KHCS␄>
+␄KHOS␄>
+/* Pin the header. position:fixed does not depend on the scroll container or
+   on the frame having had layout when its content was parsed, which sticky
+   does. Body padding is kept in sync with the real header height so nothing
+   hides underneath it when the bar wraps on narrow screens. */
+(function(){
+  var bar = document.querySelector('.nav');
+  if(!bar) return;
+  function pad(){
+    var h = bar.offsetHeight;
+    if(!h) return;
+    document.body.style.paddingTop = h + 'px';
+    document.documentElement.style.scrollPaddingTop = (h + 14) + 'px';
+  }
+  pad();
+  window.addEventListener('resize', pad);
+  window.addEventListener('load', pad);
+  if(window.ResizeObserver){ try{ new ResizeObserver(pad).observe(bar); }catch(e){} }
+  setTimeout(pad, 60); setTimeout(pad, 400);
+})();
+␄KHCS␄>
 </body>
 </html>
 </script>
@@ -1102,7 +1123,7 @@ try{
 
   /* --- Top bar --- */
   .topbar {
-    position: sticky; top: 0; z-index: 50;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     background: rgba(247, 245, 242, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -6907,6 +6928,27 @@ try{
 ␄KHCS␄>
 
 
+␄KHOS␄>
+/* Pin the header. position:fixed does not depend on the scroll container or
+   on the frame having had layout when its content was parsed, which sticky
+   does. Body padding is kept in sync with the real header height so nothing
+   hides underneath it when the bar wraps on narrow screens. */
+(function(){
+  var bar = document.querySelector('.topbar');
+  if(!bar) return;
+  function pad(){
+    var h = bar.offsetHeight;
+    if(!h) return;
+    document.body.style.paddingTop = h + 'px';
+    document.documentElement.style.scrollPaddingTop = (h + 14) + 'px';
+  }
+  pad();
+  window.addEventListener('resize', pad);
+  window.addEventListener('load', pad);
+  if(window.ResizeObserver){ try{ new ResizeObserver(pad).observe(bar); }catch(e){} }
+  setTimeout(pad, 60); setTimeout(pad, 400);
+})();
+␄KHCS␄>
 </body>
 </html>
 </script>
@@ -6935,7 +6977,7 @@ body{
 }
 
 /* ---------------- Top navigation ---------------------------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.96);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;
   align-items:center;gap:22px;}
@@ -7625,6 +7667,27 @@ function paint(id){
   window.scrollTo({top:0,behavior:'auto'});
   wireChecklists();
 }
+
+/* Pin the header. position:fixed does not depend on the scroll container or
+   on the frame having had layout when its content was parsed, which sticky
+   does. Body padding is kept in sync with the real header height so nothing
+   hides underneath it when the bar wraps on narrow screens. */
+(function(){
+  var bar = document.querySelector('.nav');
+  if(!bar) return;
+  function pad(){
+    var h = bar.offsetHeight;
+    if(!h) return;
+    document.body.style.paddingTop = h + 'px';
+    document.documentElement.style.scrollPaddingTop = (h + 14) + 'px';
+  }
+  pad();
+  window.addEventListener('resize', pad);
+  window.addEventListener('load', pad);
+  if(window.ResizeObserver){ try{ new ResizeObserver(pad).observe(bar); }catch(e){} }
+  setTimeout(pad, 60); setTimeout(pad, 400);
+})();
+
 var done = {};
 document.addEventListener('click', function(e){
   var g = e.target.closest('[data-go]');
@@ -7710,7 +7773,7 @@ body{
 }
 
 /* ---------------- Top navigation ---------------------------- */
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.96);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;
   align-items:center;gap:22px;}
@@ -8256,6 +8319,27 @@ function paint(id){
   window.scrollTo({top:0,behavior:'auto'});
   wireChecklists();
 }
+
+/* Pin the header. position:fixed does not depend on the scroll container or
+   on the frame having had layout when its content was parsed, which sticky
+   does. Body padding is kept in sync with the real header height so nothing
+   hides underneath it when the bar wraps on narrow screens. */
+(function(){
+  var bar = document.querySelector('.nav');
+  if(!bar) return;
+  function pad(){
+    var h = bar.offsetHeight;
+    if(!h) return;
+    document.body.style.paddingTop = h + 'px';
+    document.documentElement.style.scrollPaddingTop = (h + 14) + 'px';
+  }
+  pad();
+  window.addEventListener('resize', pad);
+  window.addEventListener('load', pad);
+  if(window.ResizeObserver){ try{ new ResizeObserver(pad).observe(bar); }catch(e){} }
+  setTimeout(pad, 60); setTimeout(pad, 400);
+})();
+
 var done = {};
 document.addEventListener('click', function(e){
   var g = e.target.closest('[data-go]');
@@ -8320,31 +8404,53 @@ wireChecklists();
 <script>
 var loaded = {};
 var CS = '␄KHCS␄', OS = '␄KHOS␄', CO = '␄KHCO␄';
+
+// A document parsed inside a display:none iframe has no layout box, so
+// position:sticky headers never get their constraints computed and appear to
+// scroll away until the page is manually refreshed. Every frame is therefore
+// revealed BEFORE its content is written, and never loaded while hidden.
 function load(sid){
   if(loaded[sid]) return;
   var el = document.getElementById('src-' + sid);
   var f  = document.getElementById('f-' + sid);
   if(!el || !f) return;
+  loaded[sid] = true;
   var t = el.textContent;
   t = t.split(CS).join('</' + 'script');
   t = t.split(OS).join('<' + 'script');
   t = t.split(CO).join('<' + '!--');
   f.srcdoc = t;
-  loaded[sid] = true;
 }
+
+// Nudge a freshly revealed frame so the sticky header measures against a
+// real viewport rather than a zero-height one.
+function reflow(sid){
+  var f = document.getElementById('f-' + sid);
+  if(!f) return;
+  try{
+    var w = f.contentWindow;
+    if(w) w.dispatchEvent(new Event('resize'));
+  }catch(e){}
+}
+
 function show(sid){
-  load(sid);
+  // reveal first, then load, so the document always lays out while visible
   document.querySelectorAll('.frame').forEach(function(f){ f.classList.toggle('on', f.id === 'f-' + sid); });
   document.querySelectorAll('.stab').forEach(function(b){ b.classList.toggle('active', b.dataset.seg === sid); });
+  load(sid);
+  requestAnimationFrame(function(){ reflow(sid); });
+  setTimeout(function(){ reflow(sid); }, 300);
   try{ if(history.replaceState) history.replaceState(null, '', '#' + sid); }catch(e){}
 }
 document.addEventListener('click', function(e){
   var t = e.target.closest('[data-seg]');
   if(t){ e.preventDefault(); show(t.dataset.seg); }
 });
+window.addEventListener('resize', function(){
+  var on = document.querySelector('.frame.on');
+  if(on) reflow(on.id.replace('f-', ''));
+});
 var hash = (location.hash || '').replace('#','');
 show(['s1','s2','s3','s4'].indexOf(hash) >= 0 ? hash : 's1');
-setTimeout(function(){ load('s3'); load('s4'); }, 900);
-setTimeout(function(){ load('s2'); }, 2600);
 </script>
 </body></html>

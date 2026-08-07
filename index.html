@@ -539,6 +539,12 @@ const COMPANIES = [
    desc:"An Administrative Services Organization that handles payroll and HR administration for clients who keep employment under their own FEIN. Clients gain the efficiency of outsourced processing and expert support while retaining direct control of their workforce and tax identity.",
    chips:["Client's FEIN","Payroll processing","HR administration","Flexible model"]},
 
+  {role:"ASO Plus", name:"Key Connect", icon:"bolt",
+   tagline:"Flexible, transparent, fast and easy payroll plus.",
+   desc:"Key Connect is a flexible, menu-driven payroll and HR platform giving business owners complete control over their administrative infrastructure. Instead of forcing them into rigid packages, it allows them to choose only the specific services they need and pay for what they use.",
+   desc2:"Key Connect puts the power back into the business owner's hands. Built on the foundational narrative of \"Your Business. Your Budget. Your Choice.\", Key Connect liberates organizations from forced service bundles. Instead, it empowers leadership to engineer their own custom administrative ecosystem in a seamless, hyper-transparent framework.",
+   chips:["Menu-driven","Pay for what you use","Payroll &amp; HR","No forced bundles"]},
+
   {role:"EOR", name:"Staffing Group Holdings / Frontline HRO", icon:"users",
    tagline:"An Employer of Record built for staffing companies.",
    desc:"Powered by Enwage, Frontline HRO streamlines every step of staffing-company workforce management, from payroll and tax to compliance, benefits, and risk. By taking on employer-of-record responsibilities, it frees staffing firms to focus on recruiting and growth while their workforce stays compliant and supported.",
@@ -901,7 +907,7 @@ ecosystem:()=>`
           <span class="role">${c.role}</span>
           <h3>${c.name}</h3>
           <p class="eco-tag">${c.tagline}</p>
-          <p class="eco-desc">${c.desc}</p>
+          <p class="eco-desc">${c.desc}</p>${c.desc2?`<p class="eco-desc">${c.desc2}</p>`:''}
           <div class="taglist">${c.chips.map(x=>`<span class="tag">${x}</span>`).join('')}</div>
         </article>
       </div>`).join('')}
@@ -3532,6 +3538,14 @@ try{
         <li><div><strong>Incident reporting & investigations</strong><span>Timely reporting, root-cause analysis, corrective actions.</span></div></li>
         <li><div><strong>Unemployment claims management</strong><span>Claims and reporting handled.</span></div></li>
       </ul>
+<h4 class="section-h" style="margin-top:22px;">Workers' Compensation Coverage Types</h4>
+  <p style="margin:10px 0 14px; color:var(--muted); font-size:14px;">Four ways workers compensation can be structured for a client. Know which one applies before you talk about rate, because the structure decides whose claims drive the experience modification.</p><div class="pillars">
+    <div class="pillar"><h4>Master Policy</h4><p>A single insurance policy issued for the PEO, with all clients listed as additional insured. One shared experience modification rate.</p></div>
+    <div class="pillar"><h4>Multiple Coordinated Policy (MCP)</h4><p>Separate policies issued to the PEO and each client. Each client's experience modification is based on their own claims.</p></div>
+    <div class="pillar"><h4>Monopolistic States</h4><p>Coverage must come from state-run funds — not private carriers. The four: Ohio, North Dakota, Washington, Wyoming.</p></div>
+    <div class="pillar"><h4>Workers' Comp Carve-Out</h4><p>Client retains their own policy outside the PEO. The PEO may still manage payments and policy admin if arranged.</p></div>
+  </div>
+
     </div></div>
   </div>
 
@@ -4677,13 +4691,7 @@ try{
 
   
 
-  <h3 class="section-h">Workers' Compensation Coverage Types</h3>
-  <div class="pillars">
-    <div class="pillar"><h4>Master Policy</h4><p>A single insurance policy issued for the PEO, with all clients listed as additional insured. One shared experience modification rate.</p></div>
-    <div class="pillar"><h4>Multiple Coordinated Policy (MCP)</h4><p>Separate policies issued to the PEO and each client. Each client's experience modification is based on their own claims.</p></div>
-    <div class="pillar"><h4>Monopolistic States</h4><p>Coverage must come from state-run funds — not private carriers. The four: Ohio, North Dakota, Washington, Wyoming.</p></div>
-    <div class="pillar"><h4>Workers' Comp Carve-Out</h4><p>Client retains their own policy outside the PEO. The PEO may still manage payments and policy admin if arranged.</p></div>
-  </div>
+  
 
   <div class="nav-footer">
     <button class="nav-btn" onclick="gotoModule('submissions')">← Submissions</button>
